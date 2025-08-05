@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demographic Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef5ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .conditional {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function toggleConditionalInput(selectId, inputId) {
+            const select = document.getElementById(selectId);
+            const input = document.getElementById(inputId);
+            if (select.value === 'other') {
+                input.style.display = 'block';
+            } else {
+                input.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Demographic Questionnaire</h2>
+
+    <form method="POST" autocomplete="off">
+        <label for="age">Age:</label>
+        <select id="age" name="age" required>
+            <option value="">--Select your age range--</option>
+            <option value="18-24">18–24</option>
+            <option value="25-34">25–34</option>
+            <option value="35-44">35–44</option>
+            <option value="45-54">45–54</option>
+            <option value="55-64">55–64</option>
+            <option value="65+">65+</option>
+            <option value="prefer_not">Prefer not to say</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required onchange="toggleConditionalInput('gender', 'gender_other')">
+            <option value="">--Select your gender--</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="nonbinary">Non-binary</option>
+            <option value="prefer_not">Prefer not to say</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" id="gender_other" name="gender_other" class="conditional" placeholder="Optional: Please specify your gender">
+
+        <label for="education">Highest Level of Education Completed:</label>
+        <select id="education" name="education" required onchange="toggleConditionalInput('education', 'education_other')">
+            <option value="">--Select your education level--</option>
+            <option value="high_school">High School / Secondary School</option>
+            <option value="undergraduate">Undergraduate Degree</option>
+            <option value="postgraduate">Postgraduate Degree</option>
+            <option value="prefer_not">Prefer not to say</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" id="education_other" name="education_other" class="conditional" placeholder=" Optional: Please specify your education level">
+
+        <button type="submit">Submit and Proceed</button>
+    </form>
+</div>
+</body>
+</html>
