@@ -1,3 +1,5 @@
 .env
 venv/
 __pycache__/
+*.csv
+chat_history.json
