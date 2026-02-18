@@ -1,6 +1,0 @@
-participant_id,session_number,timestamp,bot_condition,Q1_satisfaction,Q2_trust,Q3_helpfulness,Q4_emotional_support,Q5_reuse_intent,Q6_preference,open_comment
-01,1,2025-10-31T20:48:07.850575,safety,5,5,5,5,5,5,
-01,1,2026-02-18T01:10:48.346119,safety,1,1,1,1,1,1,"Test
-"
-01,2,2026-02-18T01:13:51.332798,default,1,1,1,1,1,1,"Test
-"

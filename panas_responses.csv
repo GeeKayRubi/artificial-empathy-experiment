@@ -1,8 +1,0 @@
-participant_id,panas_type,timestamp,Upset,Hostile,Alert,Ashamed,Inspired,Nervous,Determined,Attentive,Afraid,Active,positive_score,negative_score
-01,pre_session_1,2025-10-28T20:19:20.570580,4,3,3,3,2,1,1,1,1,2,9,12
-01,pre_session_1,2025-10-28T20:24:14.864808,4,3,3,2,2,1,1,2,3,3,11,13
-01,pre_session_1,2025-10-31T20:41:43.533992,1,1,1,1,2,1,4,3,1,1,11,5
-01,pre_session_1,2026-02-18T01:08:30.134027,1,1,1,1,1,1,1,1,1,1,5,5
-01,post_session_1,2026-02-18T01:10:54.284568,1,1,1,1,1,1,1,1,1,1,5,5
-01,pre_session_2,2026-02-18T01:11:05.448349,1,1,2,1,1,1,1,1,1,1,6,5
-01,post_session_2,2026-02-18T01:13:56.446348,1,1,1,1,1,1,1,1,1,1,5,5
