@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take a Break</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .reveal {
+            color: transparent;
+            background-color: #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .reveal.revealed {
+            color: inherit;
+            background-color: transparent;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h3>Break Time</h3>
+        <p>
+            Well done, you've completed the first session, halfway there! Please let the experimenter know that you have reched this page and if you have any questions. Feel free to take a break.
+        </p>
+        <p><strong>Brief reading on AI Chatbots:</strong></p>
+        <p>
+            "Generative AI can be deceptively realistic in its conversational tone, but it does not reason or think like a human. It predicts each word by analyzing millions of data points to determine what comes next. Essentially, LLMs are extraordinarily advanced autocomplete systems, similar to the predictive text feature on your smartphone but trained to function at a near-human level of sophistication. They do not ‘understand’ text in the human sense; they simply predict what might come next based on patterns in the data."
+            <em>(Adapted from Artigliere & Losey, 2024)</em>
+        </p>
+        <hr>
+        <p><strong>Quick Language Prediction Task:</strong></p>
+        <p>We can predict language too! Try guessing the missing words, then click the grey boxes to check your answers:</p>
+        <ol>
+            <li>The farmer raised cows and chickens on the <span class="reveal">farm</span>.</li>
+            <li>The building looks like a ball; it is round in <span class="reveal">shape</span>.</li>
+        </ol>
+        <form action="{{ url_for('panas', panas_type='pre_session_2') }}" method="GET"  autocomplete="off">
+            <button type="submit">Start Session Two</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelectorAll('.reveal').forEach(function(element) {
+            element.addEventListener('click', function() {
+                element.classList.add('revealed');
+            });
+        });
+    </script>
+</body>
+</html>
+

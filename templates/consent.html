@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consent Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        .consent-container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .consent-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .consent-item input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 6px;
+            transform: scale(1.1);
+        }
+
+        .consent-item label {
+            display: block;
+            cursor: pointer;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        h3, p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="consent-container">
+        <h3>Consent Form</h3>
+        <p>Please carefully read the following points. <strong>All boxes must be ticked to continue:</strong></p>
+
+<form action="{{ url_for('panas', panas_type='pre_session_1') }}" method="GET" autocomplete="off">
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent1" required />
+        <label for="consent1">I understand that my participation will involve recalling and discussing personal memories involving emotional experiences, completing demographic information, and interacting with chatbots. My interactions with the chatbot will be recorded anonymously for analysis, and I will complete short questionnaires related to each chatbot interaction.</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent2" required />
+        <label for="consent2">I understand that participation in this study is entirely voluntary and that I can withdraw at any time without giving a reason and without loss of course credit or other remuneration.</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent3" required />
+        <label for="consent3">I understand this experiment is not therapeutic and should not be treated as a replacement for professional mental health support.</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent4" required />
+        <label for="consent4">I understand that the chats will be monitored live during the experiment.</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent5" required />
+        <label for="consent5">I understand that my responses will be anonymised and stored securely on a password-protected server indefinitely, and that full anonymised transcripts will be accessible to the researcher.</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent6" required />
+        <label for="consent6">Researchers are obliged to retain research data for up to 10 years’ post-publication, however your anonymised research data may be retained indefinitely (e.g., so that researchers engage in open research, and other researchers can access their data to confirm the conclusions of published work). Consistent with our data retention
+policy, researchers retain consent forms for as long as we continue to hold information about a data subject and for 10 years for published research (including Research Degree thesis).
+</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent7" required />
+        <label for="consent7">I understand the experiment will last approximately 30 minutes, and I will receive additional information about the purpose of the study at the end of my participation.</label>
+    </div>
+
+    <div class="consent-item">
+        <input type="checkbox" id="consent8" required />
+        <label for="consent8">I have had an opportunity to discuss any questions or concerns with the experimenter and understand that I may continue to ask questions at any point during or after the study.</label>
+    </div>
+
+    <button type="submit">I Consent - Continue</button>
+</form>
+    </div>
+</body>
+</html>

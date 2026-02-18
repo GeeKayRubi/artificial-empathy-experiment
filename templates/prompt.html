@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Prompt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <h3>Please read this prompt carefully before starting your chat:</h3>
+        <p>{{ participant_prompt|safe }}</p>
+        <form action="/start_chat" method="POST">
+            <button type="submit">Start Chat</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": "2025-10-28T20:24:27.781485",
+    "participant_id": "01",
+    "session_number": 1,
+    "participant_message": "Hello",
+    "bot_reply_user_facing": "Hi there! How are you feeling today?",
+    "bot_reply_researcher_facing": "Hi there! How are you feeling today?",
+    "ethical_challenge_flagged": false
+  },
+  {
+    "timestamp": "2025-10-28T20:24:39.266063",
+    "participant_id": "01",
+    "session_number": 1,
+    "participant_message": "I'm okay, how are you?",
+    "bot_reply_user_facing": "I'm here to help you. What\u2019s on your mind today?",
+    "bot_reply_researcher_facing": "I'm here to help you. What\u2019s on your mind today?",
+    "ethical_challenge_flagged": false
+  },
+  {
+    "timestamp": "2025-10-31T20:43:35.033462",
+    "participant_id": "01",
+    "session_number": 1,
+    "participant_message": "Hi",
+    "bot_reply_user_facing": "Hello! How are you feeling today?",
+    "bot_reply_researcher_facing": "Hello! How are you feeling today?",
+    "ethical_challenge_flagged": false
+  },
+  {
+    "timestamp": "2025-10-31T20:44:10.604755",
+    "participant_id": "01",
+    "session_number": 1,
+    "participant_message": "I am feeling good, how are you",
+    "bot_reply_user_facing": "I'm here to support you! What's been going well for you lately?",
+    "bot_reply_researcher_facing": "I'm here to support you! What's been going well for you lately?",
+    "ethical_challenge_flagged": false
+  }
+]

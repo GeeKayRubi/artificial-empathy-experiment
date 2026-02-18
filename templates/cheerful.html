@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8e6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            cursor: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="22" font-size="20">😊</text></svg>'), auto;
+            overflow-x: hidden;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            max-width: 650px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        h2 {
+            color: #f39c12;
+            margin-top: 0;
+        }
+        img {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .prompt {
+            margin: 10px 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>You're All Finished!</h2>
+    <p>Thank you again for participating.</p>
+
+    <p class="prompt">Please take a moment to reflect on something positive, like:</p>
+
+    <p><strong>A moment that made you happy recently.</strong></p>
+    <p><strong>Something exciting you're looking forward to.</strong></p>
+    <p><strong>A small thing you're grateful for today.</strong></p>
+
+    <img src="{{ url_for('static', filename='cutebunny.png') }}" alt="A picture of a bunny to brighten your day!">
+
+    <p>Please inform the experimenter that you've reached this page. If you have any questions or concerns, feel free to ask!</p>
+</div>
+</body>
+</html>

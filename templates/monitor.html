@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Monitoring Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        #history-log {
+            height: 80vh;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .entry {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h3>Live Participant and Bot Chat History</h3>
+        <div id="history-log">Loading chat history...</div>
+    </div>
+
+<script>
+async function fetchChatHistory() {
+    try {
+        const response = await fetch('/get_chat_history');
+        if (response.ok) {
+            const data = await response.json();
+            let historyHTML = '';
+            data.reverse().forEach(entry => {
+                historyHTML += `
+                    <div class="entry">
+                        <div><b>Participant ID:</b> ${entry.participant_id}</div>
+                        <div><b>Session:</b> ${entry.session_number}</div>
+                        <div><b>Timestamp:</b> ${entry.timestamp}</div>
+                        <div><b>User:</b> ${entry.participant_message}</div>
+                        <div><b>Bot:</b> ${entry.bot_reply_researcher_facing}</div>
+                        <div><b>Ethical Challenge Flagged:</b> ${entry.ethical_challenge_flagged ? 'Yes' : 'No'}</div>
+
+                    </div>`;
+            });
+            document.getElementById('history-log').innerHTML = historyHTML;
+        }
+    } catch (error) {
+        console.error("Error fetching chat history:", error);
+    }
+}
+
+
+setInterval(fetchChatHistory, 5000);
+fetchChatHistory();  
+</script>
+</body>
+</html>

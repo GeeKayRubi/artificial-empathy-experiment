@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participant Chat Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body data-session-number="{{ session_number }}">
+<div class="chat-page-container">
+    
+    <div class="chat-container">
+        <h3>Chatbot Conversation</h3>
+        <div id="chat-history"></div>
+
+<div id="thinking" style="display:none; margin-top:5px;">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+        <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off"/>
+        <button onclick="sendMessage()">Send</button>
+        <p class="ethical-reminder">
+            Please do not include names or identifying details.
+        </p>
+    </div>
+
+    
+    <div class="chat-prompt-container">
+        <h3>Your Prompt</h3>
+        <p>{{ participant_prompt }}</p>
+
+
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+participant_id,session_number,timestamp,bot_condition,Q1_satisfaction,Q2_trust,Q3_helpfulness,Q4_emotional_support,Q5_reuse_intent,Q6_preference,open_comment
+01,1,2025-10-31T20:48:07.850575,safety,5,5,5,5,5,5,

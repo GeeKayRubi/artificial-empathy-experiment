@@ -1,0 +1,5 @@
+timestamp,participant_id,bot_condition,participant_prompt,session_number,participant_message,bot_reply_user_facing,bot_reply_researcher_facing,ethical_challenge_flagged
+2025-10-28 20:24:27.782260,01,safety,positive,1,Hello,Hi there! How are you feeling today?,Hi there! How are you feeling today?,False
+2025-10-28 20:24:39.272680,01,safety,positive,1,"I'm okay, how are you?",I'm here to help you. What’s on your mind today?,I'm here to help you. What’s on your mind today?,False
+2025-10-31 20:43:35.089526,01,safety,positive,1,Hi,Hello! How are you feeling today?,Hello! How are you feeling today?,False
+2025-10-31 20:44:10.622198,01,safety,positive,1,"I am feeling good, how are you",I'm here to support you! What's been going well for you lately?,I'm here to support you! What's been going well for you lately?,False

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef5ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        h2 {
+            text-align: center;
+        }
+        .question-row {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-label {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .response-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+        }
+        .response-options label {
+            flex: 1;
+            text-align: center;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            transform: scale(1.2);
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Chatbot Session {{ session_number }} Questionnaire</h2>
+    <p>Please rate your agreement with the following statements:</p>
+
+    <form method="POST"  autocomplete="off">
+        {% set questions = [
+            ('q1', 'I am satisfied with my experience with the chatbot.'),
+            ('q2', 'I feel I can trust the chatbot’s responses.'),
+            ('q3', 'The chatbot was helpful in addressing my issue or goal.'),
+            ('q4', 'I felt emotionally supported or understood by the chatbot during our conversation.'),
+            ('q5', 'I would feel comfortable using this chatbot again in the future.'),
+            ('q6', 'I would prefer interacting with this chatbot over similar tools.')
+        ] %}
+
+        {% for qid, question in questions %}
+        <div class="question-row">
+            <div class="question-label">{{ question }}</div>
+            <div class="response-options">
+                {% for label, value in [
+                    ('Disagree', 1),
+                    ('Slightly Disagree', 2),
+                    ('Neither Disagree/Agree', 3),
+                    ('Slightly Agree', 4),
+                    ('Agree', 5),
+                ] %}
+                <label>
+                    <input type="radio" name="{{ qid }}" value="{{ value }}" {% if qid != 'q6' %}required{% endif %}>
+                    <div>{{ label }}</div>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <label>Any additional comments or feedback? (optional)</label>
+        <textarea name="comment" rows="3"></textarea>
+
+        <button type="submit">Submit and Proceed</button>
+    </form>
+</div>
+</body>
+</html>

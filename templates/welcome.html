@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Study</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 900px;
+            max-width: 95%;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        h2, h3 {
+            margin: 5px 0;
+            text-align: center;
+        }
+        ul {
+            margin-left: 20px;
+            padding-left: 0;
+            text-align: left;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            max-height: 85vh;
+            overflow-y: auto;
+            text-align: center;
+            width: 100%;
+        }
+.left-align p {
+    text-align: left;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+   
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h2>Welcome to the Study</h2>
+        <p>Thank you for participating in this research!</p>
+
+
+    <h3>Overview of the Experiment</h3>
+    <div class="left-align">
+        <p>This study aims to evaluate the engagement of participants when interacting with chatbots designed to simulate conversations. Specifically, we'll explore your experience when using different conversation prompts.</p>
+    </div>
+    
+
+    <h3>What to Expect</h3>
+    <ul>
+        <li><strong>Duration:</strong> The experiment will take approximately 30 minutes.</li>
+        <li><strong>Tasks:</strong> You will have two, five minute, conversations with different chatbots. During each conversation, you'll be asked to recall and discuss either a mildly positive or mildly challenging personal memory.</li>
+        <li><strong>Questionnaires:</strong> Basic demographics (age/gender/education level) will be collected prior to chatbot interactions.  Before and after each chat, you'll complete short questionnaires about your feelings and experiences during the interactions.</li>
+    </ul>
+
+    <h3>Important Ethical Considerations</h3>
+    <ul>
+        <li><strong>Not a therapy session:</strong> This study is not therapeutic and should not be treated as a replacement for professional mental health support.</li>
+        <li><strong>Confidentiality and anonymity:</strong> While chatting with the bots, please ensure you do not share anything you wouldn't be comfortable being reviewed.</li>
+        <li><strong>Participant safety monitoring:</strong> The chat will be monitored live by the researcher during the study.</li>
+    </ul>
+
+    <h3>Your Participation</h3>
+    <div class="left-align">
+        <p>Participation is entirely voluntary. You can pause or withdraw from the experiment at any time without needing to give a reason.</p>
+        <p>If you have questions or concerns about the study, please feel free to ask the researcher at any point.</p>
+    </div>
+</div>
+
+<form action="{{ url_for('consent') }}">
+    <button type="submit">Proceed to Consent Form</button>
+</form>
+
+
+</div>
+</body>
+</html>

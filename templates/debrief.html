@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debrief</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0.3rem;
+            font-size: 1.8rem;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 0.4em;
+            color: #4CAF50;
+        }
+
+        p, li {
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .faf {
+            margin-top: 0;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .support-box {
+            margin-top: 15px;
+            background-color: #e8f5e9;
+            padding: 12px 15px;
+            border-left: 4px solid #4CAF50;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .btn-row {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .next-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .next-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Debrief Sheet</h2>
+    <p class="faf"><strong>Thank you for your time!</strong></p>
+
+    <h3>Study Title:</h3>
+    <p><strong>Artificial Empathy: Evaluating Emotional Engagement with Therapeutic Chatbots</strong></p>
+
+    <h3>Researcher:</h3>
+    <p>Georgia Rubidge (Supervised by Dr. Szymkowiak & Dr. Shepherd)</p>
+
+    <h3>What was this study about?</h3>
+    <p>This study explored how different chatbot interaction styles influence your emotional experience. The aim is to improve the design of therapeutic chatbots for more effective and emotionally supportive conversations.</p>
+
+    <h3>Why did we ask about personal memories?</h3>
+    <p>Reflecting on personal experiences helps activate real emotional responses, which allows us to better assess the emotional impact of the chatbot’s style and tone.</p>
+
+    <h3>Confidentiality and Data Use</h3>
+    <p>Your data has been anonymised and cannot be linked to your identity.</p>
+
+    <h3>Questions or Concerns?</h3>
+    <ul>
+        <li>Email: <a href="mailto:2404283@abertay.ac.uk">2404283@abertay.ac.uk</a></li>
+        <li>Supervisors:
+            <ul>
+                <li><a href="mailto:a.szymkowiak@abertay.ac.uk">Dr. Szymkowiak</a></li>
+                <li><a href="mailto:lynsay.shepherd@abertay.ac.uk">Dr. Shepherd</a></li>
+            </ul>
+        </li>
+        <li>Student Support: <a href="mailto:sez@abertay.ac.uk">sez@abertay.ac.uk</a></li>
+    </ul>
+
+    <div class="support-box">
+        <strong>If you feel upset or distressed, please consider reaching out to:</strong>
+        <ul>
+            <li><a href="https://www.samaritans.org/" target="_blank">Samaritans</a></li>
+            <li><a href="https://www.abertay.ac.uk/life/student-support-and-services/counselling-and-mental-health/urgent-help/" target="_blank">Abertay University Mental Health Support</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-row">
+        <form action="{{ url_for('cheerful') }}">
+            <button class="next-btn">Next</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
