@@ -289,7 +289,7 @@ def chat():
             'participant_prompt': session['participant_prompt'],
             'session_number': session_number, 
             'participant_message': user_msg, 
-            'bot_reply_user_facing': user_reply, 
+            'bot_reply_user_facing': user_reply, 'bot_reply_user_facing': user_reply,
             'bot_reply_researcher_facing': full_reply,
             'ethical_challenge_flagged': internal_flag
         }])
@@ -472,10 +472,6 @@ def clear_session():
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
 
-#python -m venv .venv
-#.venv\Scripts\activate
-#pip install -r requirements.txt
-#pip freeze > requirements.txt
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 import os
 from openai import OpenAI
@@ -767,7 +763,7 @@ def chat():
             'participant_prompt': session['participant_prompt'],
             'session_number': session_number, 
             'participant_message': user_msg, 
-            'bot_reply_user_facing': user_reply, 'bot_reply_user_facing': user_reply,
+            'bot_reply_user_facing': user_reply, 
             'bot_reply_researcher_facing': full_reply,
             'ethical_challenge_flagged': internal_flag
         }])
@@ -949,3 +945,8 @@ def clear_session():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
+#python -m venv .venv
+#.venv\Scripts\activate
+#pip install -r requirements.txt
+#pip freeze > requirements.txt
