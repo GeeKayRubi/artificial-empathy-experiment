@@ -3,3 +3,6 @@ venv/
 __pycache__/
 *.csv
 chat_history.json
+*.json
+!prompts/*.json
+!config.json
