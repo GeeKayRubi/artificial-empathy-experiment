@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Questionnaire</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef5ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            max-width: 700px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        h2 {
+            text-align: center;
+            margin: 8px 0;
+            font-size: 18px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 5px;
+            margin-top: 3px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 13px;
+        }
+        textarea {
+            resize: none;
+            height: 50px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+        }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Final Questionnaire</h2>
+    <form method="POST" autocomplete="off">
+        <label>1. Which bot did you prefer overall?</label>
+        <select name="preferred_bot" required>
+            <option value="">--Select--</option>
+            <option value="first">First Bot</option>
+            <option value="second">Second Bot</option>
+            <option value="no_pref">No Preference</option>
+        </select>
+
+        <label>2. In your own words, what do you think this experiment was about? (Please answer honestly, there are no right or wrong answers. We’re simply interested in your perspective.)</label>
+        <textarea name="experiment_purpose" required></textarea>
+
+        <label>3. Did either bot help with an issue or memory?</label>
+        <select name="bot_helpfulness" required>
+            <option value="">--Select--</option>
+            <option value="both">Yes, both helped</option>
+            <option value="first_only">Yes, only First Bot helped</option>
+            <option value="second_only">Yes, only Second Bot helped</option>
+            <option value="neither">No, neither helped</option>
+        </select>
+
+        <label>4. Which bot did you feel most comfortable with?</label>
+        <select name="most_comfortable_bot" required>
+            <option value="">--Select--</option>
+            <option value="first">First Bot</option>
+            <option value="second">Second Bot</option>
+            <option value="no_pref">No Preference</option>
+        </select>
+
+        <label>5. Did either bot make you feel emotionally supported?</label>
+        <select name="emotionally_supported_bot" required>
+            <option value="">--Select--</option>
+            <option value="both">Yes, both</option>
+            <option value="first">Yes, First Bot</option>
+            <option value="second">Yes, Second Bot</option>
+            <option value="neither">No, neither</option>
+        </select>
+
+        <label>6. Which bot would you choose for future support?</label>
+        <select name="future_bot_choice" required>
+            <option value="">--Select--</option>
+            <option value="first">First Bot</option>
+            <option value="second">Second Bot</option>
+        </select>
+
+        <label>7. Have you previously used chatbots (ChatGPT, Replika) for any reason?</label>
+        <select name="previous_chatbot_use" required>
+            <option value="">--Select--</option>
+            <option value="never">Never used before</option>
+            <option value="rarely">Rarely (Once a month)</option>
+            <option value="occasionally">Occasionally (Once a week)</option>
+            <option value="frequently">Frequently (Several times a week)</option>
+        </select>
+
+        <label>8. If yes, briefly comment on your experience. (Optional)</label>
+        <textarea name="chatbot_use_comments"></textarea>
+
+        <button type="submit">Submit and Continue</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Participant ID Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <h3>Participant Session Setup</h3>
+        <form method="POST"  autocomplete="off" action="/set_condition">
+            <label for="participant_id">Participant ID (e.g., 01, 02, 03):</label>
+            <input type="text" id="participant_id" name="participant_id" pattern="\d+" required />
+
+            <button type="submit">Start Experiment</button>
+        </form>
+
+        <div style="color: #555; margin-top: 15px;">
+            Conditions and prompts are automatically assigned based on the Participant ID to ensure balanced experimental conditions.
+        </div>
+    </div>
+</body>
+</html>
