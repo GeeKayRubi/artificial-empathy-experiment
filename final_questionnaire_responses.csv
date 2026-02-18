@@ -1,0 +1,3 @@
+participant_id,timestamp,preferred_bot,experiment_purpose,bot_helpfulness,most_comfortable_bot,emotionally_supported_bot,future_bot_choice,preferred_bot_choice,bot_helpfulness_choice,most_comfortable_bot_choice,emotionally_supported_bot_choice,future_bot_choice_original,previous_chatbot_use,chatbot_use_comments
+01,2026-02-18T01:14:12.121355,safety,Test,both_bots,safety,both_bots,safety,first,both,first,both,first,never,"Test
+"

@@ -17,8 +17,8 @@ async function sendMessage() {
 
     if (!timerStarted) {
         timerStarted = true;
-        const sessionDuration = 2 * 60 * 1000; 
-        const warningTime = 1 * 60 * 1000; 
+        const sessionDuration = 5 * 60 * 1000; 
+        const warningTime = 4 * 60 * 1000; 
 
         setTimeout(() => {
             alert("⚠️ One minute remaining.");
