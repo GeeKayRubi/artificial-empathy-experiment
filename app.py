@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import pandas as pd
 import json
 from datetime import datetime, timedelta
+from flask import send_file
+
 
 # Load environment variables securely
 load_dotenv()
@@ -946,6 +948,19 @@ def clear_session():
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
 
+#Render
+@app.route('/view_csv/<filename>')
+def view_csv(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as f:
+            return f.read()
+    return "File not found"
+
+@app.route('/download_csv/<filename>')
+def download_csv(filename):
+    if os.path.exists(filename):
+        return send_file(filename, as_attachment=True)
+    return "File not found"
 #python -m venv .venv
 #.venv\Scripts\activate
 #pip install -r requirements.txt
