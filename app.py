@@ -39,6 +39,7 @@ def set_condition():
 
     session['bot_condition'] = session['bot_condition_1']
     session['participant_prompt'] = session['participant_prompt_1']
+    session['current_session'] = 1
 
     session.pop('conversation', None)
 
@@ -165,7 +166,7 @@ def chat_page():
             "<br><br>"
             "(Important: Focus on your feelings, but please do not include any real names or personally identifying details.)"
         )  
-    session_number = 1 if 'session_completed' not in session else 2
+    session_number = session.get('current_session', 1)
     return render_template(
         'index.html',
         participant_prompt=participant_prompt,
@@ -233,7 +234,7 @@ def chat():
         elapsed_time = datetime.now() - start_time
         session_limit = timedelta(minutes=5)
 
-        session_number = 1 if 'session_completed' not in session else 2
+        session_number = session.get('current_session', 1)
         if elapsed_time > session_limit or user_msg =="[SESSION TIMEOUT]":
                          
            
@@ -267,7 +268,7 @@ def chat():
         session['conversation'].append({"role": "assistant", "content": full_reply})
         session.modified = True
 
-        session_number = 1 if 'session_completed' not in session else 2
+        session_number = session.get('current_session', 1)
 
         log_entry = {
             'timestamp': datetime.now().isoformat(),
@@ -387,10 +388,15 @@ def submit_panas():
         return redirect(url_for('demographics'))
     
     elif panas_type == "post_session_1":
-        # explicitly set conditions here (safest solution)
         session['bot_condition_2'] = 'default' if session['bot_condition_1'] == 'safety' else 'safety'
         session['participant_prompt_2'] = 'negative' if session['participant_prompt_1'] == 'positive' else 'positive'
-        session['session_completed'] = True
+
+        # SET SESSION 2 AS ACTIVE IMMEDIATELY
+        session['bot_condition'] = session['bot_condition_2']
+        session['participant_prompt'] = session['participant_prompt_2']
+
+        session['current_session'] = 2
+
         return redirect(url_for('break_page'))
 
     elif panas_type == "pre_session_2":
@@ -408,7 +414,7 @@ def submit_panas():
 
     elif panas_type == "post_session_2":
         return redirect(url_for('final_questionnaire'))
-
+    return "Invalid PANAS flow", 400
     
 
 
