@@ -130,7 +130,7 @@ def start_chat():
     session['start_time'] = datetime.now().isoformat()
     return redirect(url_for('chat_page'))
 
-@app.route('/chat_page'), methods=['GET'])
+@app.route('/chat_page', methods=['GET'])
 def chat_page():
     print("[DEBUG] Entered chat_page")
     print("[DEBUG] Session keys:", list(session.keys()))
@@ -412,7 +412,7 @@ def submit_panas():
     elif panas_type == "post_session_2":
         return redirect(url_for('final_questionnaire'))
 
-    return redirect(url_for('home'))
+    
 
 
 
