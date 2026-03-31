@@ -235,10 +235,7 @@ def chat():
 
         session_number = 1 if 'session_completed' not in session else 2
         if elapsed_time > session_limit or user_msg =="[SESSION TIMEOUT]":
-            if session_number == 1:
-                session['bot_condition_2'] = 'default' if session['bot_condition_1'] == 'safety' else 'safety'
-                session['participant_prompt_2'] = 'negative' if session['participant_prompt_1'] == 'positive' else 'positive'
-                session['session_completed'] = True
+                         
            
             session.pop('conversation', None)
             session.pop('start_time', None)
