@@ -128,12 +128,53 @@ def start_chat():
     print("[DEBUG] Entered start_chat")
     print("[DEBUG] Session before starting chat:", dict(session))
     session['start_time'] = datetime.now().isoformat()
-    return redirect(url_for('home'))
+    return redirect(url_for('chat_page'))
 
+@app.route('/chat_page'), methods=['GET'])
+def chat_page():
+    print("[DEBUG] Entered chat_page")
+    print("[DEBUG] Session keys:", list(session.keys()))
+
+    if 'bot_condition' not in session or 'participant_prompt' not in session:
+        print("[ERROR] Missing session data — redirecting to /admin")
+        return redirect(url_for('admin'))
+
+    prompt_type = session['participant_prompt']
+
+    if prompt_type == 'positive':
+        participant_prompt = (
+            "Take a moment to think of a <strong>positive</strong> experience in your life "
+            "that still makes you feel happy or content when you remember it. "
+            "It could be something big or small: any moment that brought you genuine joy, pride, or comfort. "
+            "Take a minute to visualise this memory clearly, and then describe briefly what happened "
+            "and how it made you feel. "
+            "<br><br>"
+            "You will have <strong>five minutes</strong> to share and discuss this memory with the chatbot."
+            "<br><br>"
+            "(Important: Focus on your feelings, but please do not include any real names or personally identifying details.)"
+        )
+    else:
+        participant_prompt = (
+            "Take a moment to think of a <strong>challenging</strong> experience that made you feel upset, "
+            "disappointed, or sad: something negative that happened in your life that still mildly bothers you "
+            "when you recall it. Please do not choose an extremely distressing, traumatic, or highly upsetting event; "
+            "instead, select a more ordinary, moderate negative memory that you feel comfortable reflecting on right now. "
+            "Take a moment to recall it clearly, and then briefly describe what happened and how you felt. "
+            "<br><br>"
+            "You will have <strong>five minutes</strong> to share and discuss this memory with the chatbot."
+            "<br><br>"
+            "(Important: Focus on your feelings, but please do not include any real names or personally identifying details.)"
+        )  
+    session_number = 1 if 'session_completed' not in session else 2
+    return render_template(
+        'index.html',
+        participant_prompt=participant_prompt,
+        session_number=session_number
+    )
+    
 @app.route('/', methods=['GET'])
 def home():
     return redirect(url_for('admin'))
-
 
 def load_prompt(condition):
     filename = 'prompts/safety_aware.txt' if condition == 'safety' else 'prompts/default_supportive.txt'
