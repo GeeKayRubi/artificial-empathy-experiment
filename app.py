@@ -6,6 +6,7 @@ import pandas as pd
 import json
 from datetime import datetime, timedelta
 from flask import send_file
+import zipfile
 
 
 # Load environment variables securely
@@ -499,6 +500,25 @@ def download_csv(filename):
         return send_file(filename, as_attachment=True)
     return "File not found"
 
+@app.route('/download_all')
+def download_all():
+    zip_filename = "all_data.zip"
+
+    files_to_include = [
+        "chat_logs.csv",
+        "chatbot_questionnaire_responses.csv",
+        "panas_responses.csv",
+        "demographics_data.csv",
+        "final_questionnaire_responses.csv",
+        "chat_history.json"
+    ]
+
+    with zipfile.ZipFile(zip_filename, 'w') as zipf:
+        for file in files_to_include:
+            if os.path.exists(file):
+                zipf.write(file)
+
+    return send_file(zip_filename, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.getenv("PORT", 5000)))
